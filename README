@@ -1,0 +1,5 @@
+solve-sudoku: Constraint propagation with Screamer (nikodemus.github.io/screamer)
+
+Reads 81 whitespace-delimited symbols from standard input, each a digit [1-9]
+or a placeholder such as a hyphen or underscore. Input is assumed to represent
+a solvable sudoku in which case the solution is printed to standard output.
