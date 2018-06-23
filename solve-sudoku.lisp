@@ -46,10 +46,8 @@
     (format t "~&~a~%" (string-trim "()" (princ-to-string i)))))
 
 
-(defun read-solve-print (argv)
-  (let ((p (loop with i while (setq i (read *standard-input* nil)) collect i)))
-    (if (= (length p) 81)
-        (print-grid (solve-sudoku p))
-        (error (concatenate
-                'string (princ-to-string (length p))
-                " symbols were read from standard input, 81 were expected")))))
+(defun ui (argv)
+  (declare (ignore argv))
+  (labels ((get-inputs (c)
+             (when (> c 0) (cons (read *standard-input* nil) (get-inputs (1- c))))))
+    (print-grid (solve-sudoku (get-inputs 81)))))
